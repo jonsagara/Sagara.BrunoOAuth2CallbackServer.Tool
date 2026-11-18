@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+
+		<!-- .NET tool -->
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>dotnet-bruno-oauth2-callback-server</ToolCommandName>
+		<PackageId>Sagara.BrunoOAuth2CallbackServer.Tool</PackageId>
+		<Description>A local OAuth2 callback server for the Bruno API client. Receives the OAuth2 redirect in your system browser and forwards it to Bruno. A .NET port of @usebruno/oauth2-callback-server; not affiliated with Bruno.</Description>
+		<PackageTags>bruno;oauth2;oauth;callback;redirect;dotnet-tool</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+		<!-- Keep working when only a newer .NET runtime is installed. -->
+		<RollForward>Major</RollForward>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Kestrel. The ASP.NET Core shared runtime is installed with the .NET SDK. -->
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.CommandLine" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
+		<None Include="..\..\THIRD-PARTY-NOTICES.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="Sagara.BrunoOAuth2CallbackServer.Tool.Tests" />
+	</ItemGroup>
+
+</Project>
